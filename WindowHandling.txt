@@ -1,0 +1,62 @@
+package day10;
+
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class WindowHandling {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		
+		
+		driver.get("https://www.irctc.co.in/nget/train-search");
+		driver.findElement(By.xpath(" /html/body/app-root/app-home/div[1]/app-header/div[2]/div[2]/div[2]/nav/ul/li[7]/a ")).click();
+		driver.findElement(By.xpath("/html/body/app-root/app-home/div[1]/app-header/div[2]/div[2]/div[2]/nav/ul/li[7]/ul/li[3]/a/span[1]")).click();
+		driver.findElement(By.xpath("/html/body/app-root/app-home/div[1]/app-header/div[2]/div[2]/div[2]/nav/ul/li[7]/ul/li[3]/ul/li[2]/a/span")).click();
+		
+		String firstsessionId = driver.getWindowHandle();
+		System.out.println(firstsessionId);
+		
+		Set<String> secondsessionId =driver.getWindowHandles();
+		System.out.println(secondsessionId);
+		
+		for(String WindowHandle : secondsessionId)
+		{
+			driver.switchTo().window(WindowHandle);
+		}
+		
+		Select dropdown = new Select(driver.findElement(By.xpath("/html/body/app-root/accommodation/div[2]/div[2]/div/form/div[1]/select")));
+		dropdown.selectByVisibleText("JAIPUR");
+		
+		Select dropdown1= new Select(driver.findElement(By.xpath("//Select[@name='laungecity']")));
+//		Select dropdown1= new Select(driver.findElement(By.xpath("/html/body/app-root/accommodation/div[2]/div[2]/div/form/div[2]/select")));
+		dropdown1.selectByVisibleText("IRCTC EXECUTIVE LOUNGE JAIPUR");
+//		dropdown1.selectByIndex(0);
+		
+		Select dropdown2= new Select(driver.findElement(By.name("selPassangers")));
+		dropdown2.selectByIndex(3);
+		
+//		Select dropdown3 = new Select(driver.findElement(By.name("acservicecheckindate")));
+//		dropdown3.selectByVisibleText("26");
+		
+		driver.findElement(By.name("acservicecheckindate")).click();
+		driver.findElement(By.xpath("//span[@class='act active-red']")).click();
+		
+		Select dropdown4 = new Select(driver.findElement(By.name("checkInTime")));
+		dropdown4.selectByIndex(5);
+		
+		Select dropdown5 = new Select(driver.findElement(By.name("checkOutTime")));
+		dropdown5.selectByIndex(5);
+		
+		//driver.findElement(By.xpath("(//button[@type='submit'])[1]")).click();
+
+	}
+
+}

@@ -1,0 +1,99 @@
+Assignment1:
+
+	For lopp					
+		i=0	i<5	i++	print	i++
+		0	YES	1	YES	2
+		2	YES	3	YES	4
+		4	YES	5	YES	6
+		6	NO	Break	Break	
+
+Program:
+
+package day2;
+
+public class Loops {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		for(int i = 0; i<5; i++)
+
+		 {
+
+		 System.out.println("Hello ! am here");
+
+		 i++;
+
+		 }
+
+	}
+
+}
+O/p
+
+Hello ! am here
+Hello ! am here
+Hello ! am here
+
+
+
+
+Assignment2:write a program : to add two numbers. read both the numbers from user (input). addition should be inside loop... continue the loop till the user says no.... so you need to get the user input like (Y or N).. if "Y" means continue the loop, get the numbers and run. If input is "N" break the loop.
+
+program:
+
+package day2;
+
+import java.util.Scanner;
+
+public class Assignment2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int  num1,num2,sum;
+		Scanner sc= new Scanner(System.in);
+		String connect = "Y";
+		while(connect.equals("Y")) {
+		
+		System.out.println("Enter the num1:");
+		 num1 = sc.nextInt();
+		System.out.println("Enter the num2:");
+		 num2 = sc.nextInt();
+		 sum= num1+num2;
+		System.out.println("sum of two numbers are:" +sum);
+		
+		System.out.println("Click any letter from (Y or N)=");
+		connect= sc.next();
+		}
+		
+		sc.close();		
+		
+
+	}
+				
+
+}
+
+output:
+
+Enter the num1:
+3
+Enter the num2:
+6
+sum of two numbers are:9
+Click any letter from (Y or N)=
+Y
+Enter the num1:
+7
+Enter the num2:
+2
+sum of two numbers are:9
+Click any letter from (Y or N)=
+Y
+Enter the num1:
+54
+Enter the num2:
+2
+sum of two numbers are:56
+Click any letter from (Y or N)=
+N

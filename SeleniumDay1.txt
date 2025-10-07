@@ -1,0 +1,32 @@
+package day1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class AmazonSignoff {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver","./drivers/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		
+		driver.get("https://www.amazon.in");
+		String title = driver.getTitle();
+		System.out.println(title);
+		driver.findElement(By.linkText("Start here.")).click();
+		
+		String title1 = driver.getTitle();
+		System.out.println(title1);
+		
+		driver.findElement(By.xpath("//input[@id='ap_customer_name']")).sendKeys("Srinivas D");
+		driver.findElement(By.id("ap_phone_number")).sendKeys("9553099688");
+		driver.findElement(By.name("secondaryLoginClaim")).sendKeys("srinugupta2020@gmail.com");
+		driver.findElement(By.id("ap_password")).sendKeys("Srinivas@7723");
+		driver.findElement(By.id("continue")).click();
+		
+
+	}
+
+}

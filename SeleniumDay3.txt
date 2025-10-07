@@ -1,0 +1,127 @@
+https://demowebshop.tricentis.com/
+
+	
+	Test Case - 001
+	
+	Launch the application
+	Click Register Link - from top menu
+	Select Gender
+	Enter value for First name
+	Enter value for Last name
+	Enter value for Email
+	Enter value for password
+	Enter value for confirm password
+	Click Register
+	Get the success message and print
+
+
+program:
+
+package project1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TaskOne {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver","./drivers/chromedriver.exe");
+		ChromeDriver driver= new ChromeDriver();
+		driver.manage().window().maximize();
+		
+		
+		driver.get("https://demowebshop.tricentis.com/");
+		driver.findElement(By.xpath("/html/body/div[4]/div[1]/div[1]/div[2]/div[1]/ul/li[1]/a")).click();
+		driver.findElement(By.id("gender-male")).click();
+		driver.findElement(By.name("FirstName")).sendKeys("Srinivas");
+		driver.findElement(By.id("LastName")).sendKeys("Devaguptapu");
+		driver.findElement(By.id("Email")).sendKeys("devaguptapusrinu123@gmail.com");
+		driver.findElement(By.id("Password")).sendKeys("Srinivas@7723");
+		driver.findElement(By.id("ConfirmPassword")).sendKeys("Srinivas@7723");
+		
+		driver.findElement(By.id("register-button")).submit();
+//		String title = driver.getTitle();
+//		System.out.println(title);
+		
+		String infotext =driver.findElement(By.xpath("/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]")).getText();
+		System.out.println(infotext);
+		
+		driver.findElement(By.xpath("/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[2]/input")).click();
+		
+		
+		 
+		driver.quit();
+
+	}
+
+}
+  
+
+
+
+	Test Case - 002
+	
+	Launch the application
+	Click Login Link - from top menu
+	Enter value for username
+	Enter value for password
+	Click Login button
+	Get the logged in user details and print
+	Select computers option
+	choose some product and add to cart
+
+
+
+
+Program:
+
+
+package project1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+//import org.openqa.selenium.support.ui.Select;
+
+public class LoginTaskone {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();	
+		driver.manage().window().maximize();
+		
+		driver.get("https://demowebshop.tricentis.com/");
+		driver.findElement(By.xpath("/html/body/div[4]/div[1]/div[1]/div[2]/div[1]/ul/li[2]/a")).click();
+		
+		driver.findElement(By.id("Email")).sendKeys("devaguptapusrinu123@gmail.com");
+		driver.findElement(By.id("Password")).sendKeys("Srinivas@7723");
+		driver.findElement(By.name("RememberMe")).click();
+		driver.findElement(By.xpath("//input[@value='Log in']")).click();
+		
+//		
+//		Select dropdown = new Select(driver.findElement(By.xpath("/html/body/div[4]/div[1]/div[2]/ul[1]/li[2]/a")));
+//		dropdown.selectByVisibleText("Notebooks");
+		
+		String value =driver.findElement(By.className("account")).getText();
+		System.out.println(value);
+		
+		driver.findElement(By.xpath("//a[@href='/computers']")).click();
+		driver.findElement(By.xpath("//a[@title ='Show products in category Accessories']")).click();
+		driver.findElement(By.xpath("/html/body/div[4]/div[1]/div[4]/div[2]/div[2]/div[2]/div[3]/div[3]/div/div[2]/h2/a")).click();
+		driver.findElement(By.id("add-to-cart-button-65")).click();
+		driver.navigate().back();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("/html/body/div[4]/div[1]/div[4]/div[2]/div[2]/div[2]/div[3]/div[4]/div/div[2]/h2/a")).click();
+		driver.findElement(By.id("add-to-cart-button-62")).click();
+		driver.findElement(By.className("cart-label")).click();
+		
+		driver.findElement(By.className("ico-logout")).click();
+		
+
+	}
+
+}
+

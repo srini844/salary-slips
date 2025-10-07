@@ -1,0 +1,30 @@
+1. Swap two numbers
+2. Reverse a Number
+3. Reverse a String
+4.Palindrome
+5. Palindrome String
+6.Count number of digits in a number
+7. Count number of EVEN and ODD digits in a number
+8.Count sum of digits in a number
+9.Find largest of 3 numbers
+10.Generate Fibonacci series
+11.Prime Num or not
+12. genearte Random number and strings
+13.Factorial of a number
+14.Find sum of elements in a array
+15.Print Even & odd numbers from an array
+16.How to check the equality of two arrays
+17.Find missing numbers in a array
+18.Find Maximum & Minimum values in a array
+19.How to find Duplicates elements in a array
+20.Searching an element in array ---linear search
+21.Searching an element in array ---Binary search
+22.sort elements in array--- Bubble sort
+23.Sort elements in a array using built in methods
+24.How to Remove junk or Special characytors in string
+25.How to remove white spaces in a string
+26.How to count occurrences of a charactor in a string
+27.How to count words in string
+28.How to reverse each word in string
+29.How to read data from text file
+30.How to write data into text file
